@@ -54,16 +54,15 @@ def save_conversation(conversation_id: str, messages: List[Dict[str, str]]):
         messages: List of message dictionaries
     """
     initialize_memory_file()
-    
 
-    ##TODO: open MEMORY_FILE, add new record with conversation as key and messages as value
+    ##TODO: open MEMORY_FILE, add new record with conversation_id as key and messages as value
     try:
         # Read existing conversations
-        with open(..., 'r') as file:
-            all_conversations =...
+        with open(MEMORY_FILE, 'r') as file:
+            all_conversations = json.load(file)
         
         # Update with new messages
-        all_conversations[...] = ...
+        all_conversations[conversation_id] = messages
         
         # Write back to file
         with open(MEMORY_FILE, 'w') as file:
@@ -120,22 +119,25 @@ def chatbot_response(user_input: str, conversation_id: Optional[str] = None) -> 
     # Get conversation history
     messages = get_conversation_history(conversation_id)
     
-    # Add user message to history
-    messages.append({"role": "human", "content": user_input, "timestamp": datetime.now().isoformat()})
-    
+
     ##TODO: extract formatted history with format_messages_for_prompt function
     # Format messages for the prompt
-    formatted_history = ....
+    formatted_history = format_messages_for_prompt(messages)
+
+    # Add user message to history
+    
+    
     
     # Generate response
     ##TODO: Combine prompt and llm to create a chain, invoke it with chat_history and input arguments
 
-    chain = ....
-    response = chain.invoke({...})
+    chain = prompt | llm
+    response = chain.invoke({"input":user_input, "chat_history": formatted_history})
     
     # Add AI response to history
     ##TODO: append AI response to messages list, select role from `ai`, `system` or `human`, use datetime.now for timestamp
-    messages.append({"role": ..., "content": ..., "timestamp": ....})
+    messages.append({"role": "human", "content": user_input, "timestamp": datetime.now().isoformat()})
+    messages.append({"role": 'ai', "content": response.content, "timestamp": datetime.now().isoformat()})
     
     # Save updated conversation
     save_conversation(conversation_id, messages)

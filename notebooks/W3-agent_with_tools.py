@@ -15,7 +15,7 @@ from langchain.agents.format_scratchpad.openai_tools import format_to_openai_too
 from langchain.agents.output_parsers.openai_tools import OpenAIToolsAgentOutputParser
 
 
-llm = ChatOpenAI(temperature=0, model_name="gpt-4o")
+llm = ChatOpenAI(temperature=0, model_name="gpt-4o", streaming=False)
 
 from dotenv import load_dotenv
 load_dotenv()
