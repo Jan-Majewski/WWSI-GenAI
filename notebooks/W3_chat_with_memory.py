@@ -11,17 +11,18 @@ from langchain_core.messages import HumanMessage, AIMessage
 from dotenv import load_dotenv
 load_dotenv()
 
-# # Initialize OpenAI LLM
-# llm = ChatOpenAI(temperature=0.7, model_name="gpt-4o")
+# Initialize OpenAI LLM
+llm = ChatOpenAI(temperature=0.7, model_name="gpt-4o")
 
-llm = ChatOpenAI(
-    model="gemma-3",  # This can be any string as LM Studio will use the loaded model
-    openai_api_base="http://127.0.0.1:1234/v1",
-    openai_api_key="not-needed",  # LM Studio doesn't require an API key but the parameter is needed
-    temperature=0.7,
-    max_tokens=500,
-    streaming=True
-)
+# # LM Studio local LLM (uncomment to use instead of OpenAI)
+# llm = ChatOpenAI(
+#     model="gemma-3",  # This can be any string as LM Studio will use the loaded model
+#     openai_api_base="http://127.0.0.1:1234/v1",
+#     openai_api_key="not-needed",  # LM Studio doesn't require an API key but the parameter is needed
+#     temperature=0.7,
+#     max_tokens=500,
+#     streaming=True
+# )
 
 # File path for our memory storage
 MEMORY_FILE = "conversation_memory.json"

@@ -65,7 +65,7 @@ if st.session_state.conversation_id:
 if st.sidebar.button("Start New Conversation"):
     st.session_state.conversation_id = None
     st.session_state.messages = []
-    st.experimental_rerun()
+    st.rerun()
 
 # Display chat messages
 for message in st.session_state.messages:
@@ -113,7 +113,7 @@ with st.container():
             message_placeholder.markdown(full_response)
         
         # Force a rerun to update the UI with the new messages
-        st.experimental_rerun()
+        st.rerun()
 
 # Footer
 st.sidebar.markdown("---")
