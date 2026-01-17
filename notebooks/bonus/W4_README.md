@@ -22,7 +22,9 @@ notebooks/bonus/
 ├── W4_voice_chat_app.py              # Streamlit voice chat (complete)
 ├── W4_voice_chat_app_BLANK.py        # Exercise version (5 TODOs)
 ├── W4_realtime_voice_agent.py        # Terminal app (complete)
-└── W4_realtime_voice_agent_BLANK.py  # Exercise version (5 TODOs)
+├── W4_realtime_voice_agent_BLANK.py  # Exercise version (5 TODOs)
+├── W4_on_premise_LLMs.ipynb          # Running local LLMs with LM Studio
+└── requirements.txt                  # Voice-specific dependencies
 ```
 
 ---
