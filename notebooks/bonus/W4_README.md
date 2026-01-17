@@ -17,11 +17,37 @@ Two approaches to voice-enabled AI:
 
 ```
 notebooks/bonus/
-├── W4_README.md              # This file
-├── W4_voice_utils.py         # STT/TTS helper functions
-├── W4_voice_chat_app.py      # Streamlit voice chat (wraps W3 chat)
-└── W4_realtime_voice_agent.py # Terminal app using Realtime API
+├── W4_README.md                      # This file
+├── W4_voice_utils.py                 # STT/TTS helper functions
+├── W4_voice_chat_app.py              # Streamlit voice chat (complete)
+├── W4_voice_chat_app_BLANK.py        # Exercise version (5 TODOs)
+├── W4_realtime_voice_agent.py        # Terminal app (complete)
+└── W4_realtime_voice_agent_BLANK.py  # Exercise version (5 TODOs)
 ```
+
+---
+
+## Exercises
+
+Both apps have BLANK versions with TODOs for hands-on learning:
+
+### W4_voice_chat_app_BLANK.py (5 TODOs)
+| TODO | Topic | What to implement |
+|------|-------|-------------------|
+| 1 | Hashing | Compute MD5 hash of audio bytes |
+| 2 | LLM | Get AI response from chatbot |
+| 3 | TTS | Generate speech from AI response |
+| 4 | State | Add AI message to chat history |
+| 5 | STT | Transcribe audio with Whisper |
+
+### W4_realtime_voice_agent_BLANK.py (5 TODOs)
+| TODO | Topic | What to implement |
+|------|-------|-------------------|
+| 1 | Auth | WebSocket headers (Authorization, OpenAI-Beta) |
+| 2 | Config | Session configuration (modalities, VAD, voice) |
+| 3 | Send | Encode audio to base64 and send to API |
+| 4 | Receive | Decode incoming audio chunks from API |
+| 5 | Playback | Convert bytes to numpy array and play |
 
 ---
 
